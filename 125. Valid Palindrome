@@ -1,0 +1,26 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        s = s.toUpperCase();
+        char[] charArray = s.toCharArray();
+        int start = 0;
+        int end = s.length()-1;
+
+        while(start<end){
+            if((charArray[start]>=65 && charArray[start]<=90) || (charArray[start]>=48 && charArray[start]<=57)){
+                if((charArray[end]>=65 && charArray[end]<=90)||(charArray[end]>=48 && charArray[end]<=57)){
+                    if(charArray[start]!=charArray[end]){
+                        return false;
+                    }
+                    start++;
+                    end--;
+                }else{
+                    end--;
+                }
+            }else{
+                start++;
+            }
+            
+        }
+        return true;
+    }
+}
