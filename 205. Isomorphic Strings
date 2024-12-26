@@ -1,0 +1,23 @@
+import java.util.*;
+
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        if(s.length()!= t.length()){
+            return false;
+        }
+        HashMap<Character,Character> map = new HashMap<>();
+        for(int i=0;i<s.length();i++){
+            if(!map.containsValue(t.charAt(i))){
+                Character c = map.put(s.charAt(i),t.charAt(i));
+                if(c!=null){
+                    if(c!=t.charAt(i)){
+                        return false;
+                    }
+                }
+            }else if(map.get(s.charAt(i))==null || map.get(s.charAt(i))!=t.charAt(i)){
+                return false;
+            }
+        }
+        return true;
+    }
+}
