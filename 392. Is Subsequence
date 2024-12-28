@@ -1,0 +1,26 @@
+import java.util.*;
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        ArrayList<Character> arr = new ArrayList<>();
+        boolean flag = false;
+        for(int i=0;i<t.length();i++){
+            arr.add(t.charAt(i));
+        }
+        int j=0;
+        for(int i=0;i<s.length();i++){
+            char c = s.charAt(i);
+            for(j=j;j<arr.size();j++){
+                if(c == arr.get(j)){
+                    arr.remove(j);
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag == false){
+                return false;
+            }
+            flag = false;
+        }
+        return true;
+    }
+}
